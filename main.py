@@ -1,5 +1,3 @@
-from typing import List, Dict
-
 from csv_utils import read_csv_file
 from sale_calculations import calculate_best_selling_products, calculate_total_sales, calculate_totals_by_product
 
