@@ -30,6 +30,6 @@ def run():
     total_sales = calculate_total_sales(data)
     best_selling_products = calculate_best_selling_products(data)
 
-    print_data(total_sales_by_product, 'Total sales by product', print_format)
-    print_total_sales(total_sales, 'Total sales')
-    print_data(best_selling_products, 'Best Selling products', print_format)
+    print_data(total_sales_by_product, 'TOTAL SALES BY PRODUCT', print_format)
+    print_total_sales(total_sales, 'TOTAL SALES')
+    print_data(best_selling_products, 'BEST SELLING PRODUCTS', print_format)

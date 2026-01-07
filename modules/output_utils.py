@@ -13,7 +13,7 @@ def print_text_table(data):
 def print_data(data: List[Dict[str, str]], title: str, format: str):
     print(title)
     if format == 'json':
-        print(json.dumps(data, ensure_ascii=False), end="\n\n")
+        print(json.dumps(data, ensure_ascii=False, indent=4), end="\n\n")
     elif format == 'text':
         print_text_table(data)
 
