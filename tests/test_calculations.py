@@ -1,5 +1,5 @@
 
-from modules.sale_calculations import calculate_total_sales, calculate_totals_by_product
+from modules.sale_calculations import calculate_total_sales, calculate_totals_by_product, filter_sales_by_date
 from pytest import raises
 
 def get_csv_sales_data_mock():
@@ -59,3 +59,25 @@ def test_calculate_totals_by_product_invalid_order_by_option():
 
     assert expected_value == str(exc_info.value)
 
+def test_filter_sales_by_date():
+    sales = [
+        {"data": "2026-01-01", "produto": "Camiseta"},
+        {"data": "2026-01-05", "produto": "Calça"},
+        {"data": "2026-01-10", "produto": "Tênis"},
+    ]
+
+    result = filter_sales_by_date(sales, "2026-01-02", "2026-01-08")
+
+    assert isinstance(result, list)
+    assert len(result) == 1
+    assert result[0]["produto"] == "Calça"
+
+def test_filter_sales_by_date_no_results():
+    sales = [
+        {"data": "2026-01-01", "produto": "Camiseta"},
+        {"data": "2026-01-05", "produto": "Calça"},
+    ]
+
+    result = filter_sales_by_date(sales, "2026-02-01", "2026-02-10")
+
+    assert result == []

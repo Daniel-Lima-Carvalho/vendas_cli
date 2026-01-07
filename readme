@@ -25,11 +25,13 @@ Isso permite que você rode o comando vendas-cli diretamente no terminal sem pre
 
 ▶️ 3. Executar o script
 Agora você pode rodar o comando da CLI passando os parâmetros necessários:
-vendas-cli --csv_file_path "docs/vendas_exemplo.csv" --format "text"
+vendas-cli --csv_file_path "docs/vendas_exemplo.csv" --format "text" --initial_date "2026-01-01" --final_date "2026-01-02"
 
 🔹 Parâmetros
 - --csv_file_path → caminho para o arquivo CSV de vendas.
 - --format → formato de saída (exemplo: text(tabela) ou json).
+- --initial_date - data inicial do filtro por data.
+- --final_date - data final do filtro por data.
 
 📌 Exemplo de uso
 vendas-cli --csv_file_path "docs/vendas_exemplo.csv" --format "text"
