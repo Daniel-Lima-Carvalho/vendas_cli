@@ -1,14 +1,28 @@
+import argparse
 from modules.log_config import init_logging
 init_logging()
 
 from modules.csv_utils import read_csv_file
-from modules.output_utils import print_data
+from modules.output_utils import print_data, print_total_sales
 from modules.sale_calculations import calculate_best_selling_products, calculate_total_sales, calculate_totals_by_product
 
 def run():
-    data = read_csv_file("docs/vendas_exemplo.csv")
+    parser = argparse.ArgumentParser(
+        prog="vendas-cli",
+        description="CLI to analyze sales"
+    )
+    parser.add_argument("--csv_file_path", type=str, required=True, help="Path to CSV file")
+    parser.add_argument("--format", type=str, help="Path to CSV file")
+
+    args = parser.parse_args()
+    csv_file_path = args.csv_file_path
+    print_format = args.format if args.format else 'text'
+
+    data = read_csv_file(csv_file_path)
     total_sales_by_product = calculate_totals_by_product(data, 'total_sales')
     total_sales = calculate_total_sales(data)
     best_selling_products = calculate_best_selling_products(data)
 
-    print_data(best_selling_products, 'Best Selling products', 'text')
+    print_data(total_sales_by_product, 'Total sales by product', print_format)
+    print_total_sales(total_sales, 'Total sales')
+    print_data(best_selling_products, 'Best Selling products', print_format)
