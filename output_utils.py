@@ -2,7 +2,7 @@ import json
 from typing import List, Dict
 
 def print_text_table(data):
-    print(f"{'Produto':<10} | {'Total Vendas':<12} | {'Quantidade':<10}")
+    print(f"{'Name':<10} | {'Total sales':<12} | {'Quantity':<10}")
     print("-" * 40)
 
     for produto, valores in data.items():
