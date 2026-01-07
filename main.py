@@ -1,10 +1,10 @@
-from log_config import init_logging
+from modules.log_config import init_logging
 init_logging()
 import logging
 
-from csv_utils import read_csv_file
-from output_utils import print_data
-from sale_calculations import calculate_best_selling_products, calculate_total_sales, calculate_totals_by_product
+from modules.csv_utils import read_csv_file
+from modules.output_utils import print_data
+from modules.sale_calculations import calculate_best_selling_products, calculate_total_sales, calculate_totals_by_product
 
 
 data = read_csv_file("docs/vendas_exemplo.csv")

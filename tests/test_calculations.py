@@ -1,5 +1,5 @@
 
-from sale_calculations import calculate_total_sales, calculate_totals_by_product
+from modules.sale_calculations import calculate_total_sales, calculate_totals_by_product
 from pytest import raises
 
 def get_csv_sales_data_mock():
