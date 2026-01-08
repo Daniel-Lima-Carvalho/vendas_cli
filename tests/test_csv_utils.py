@@ -4,7 +4,7 @@ from modules.csv_utils import read_csv_file
 
 def test_read_csv_file(tmp_path, caplog):
     file_path = tmp_path / "vendas.csv"
-    with open(file_path, "w", newline="") as f:
+    with open(file_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["produto", "quantidade", "preco_unitario"])
         writer.writeheader()
         writer.writerow({"produto": "Camiseta", "quantidade": "4", "preco_unitario": "199.6"})

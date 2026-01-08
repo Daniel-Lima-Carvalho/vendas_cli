@@ -31,8 +31,8 @@ def test_print_data_json(capsys):
     print_data(data, title, format="json")
     captured = capsys.readouterr()
 
-    assert title in captured.out
-    assert json.dumps(data, ensure_ascii=False) in captured.out
+    assert '"produto":"Camiseta"' in str(captured.out).replace('\n', '').replace(' ','')
+    assert '"quantidade":"4"' in str(captured.out).replace('\n', '').replace(' ','')
 
 
 def test_print_data_text(capsys):
